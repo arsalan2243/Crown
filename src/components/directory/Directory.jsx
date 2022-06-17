@@ -1,7 +1,6 @@
-import React, { Component } from "react"
-import "./directory.scss"
-import MenuItem from "../menu-item/MenuItem"
-
+import React, { Component } from "react";
+import MenuItem from "../menu-item/MenuItem";
+import "./diractory.scss";
 export default class Directory extends Component {
   state = {
     sections: [
@@ -38,7 +37,8 @@ export default class Directory extends Component {
         linkUrl: "shop/mens",
       },
     ],
-  }
+  };
+
   render() {
     return (
       <div className="directory-menu">
@@ -46,6 +46,6 @@ export default class Directory extends Component {
           <MenuItem key={item.id} {...item} />
         ))}
       </div>
-    )
+    );
   }
 }

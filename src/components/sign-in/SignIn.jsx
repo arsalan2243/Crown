@@ -1,24 +1,25 @@
-import React, { Component } from "react"
-import CustomButton from "../custom-button/CustomButton"
-import FormInput from "../form-input/FormInput"
-import "./sign-in.scss"
-import { signInWithGoogle } from "../../firebase/firebase.utils"
+import React, { Component } from "react";
+import CustomButton from "../custom-button/CustomButton";
+import FormInput from "../form-input/FormInput";
+import "./sign-in.scss";
+import { signInWithGoogle } from "../../firebase/firebase.utils";
+
 export default class SignIn extends Component {
   state = {
     email: "",
     password: "",
-  }
+  };
 
   handleSubmit = (e) => {
-    e.preventDefault()
+    e.preventDefault();
 
-    this.setState({ email: "", password: "" })
-  }
+    this.setState({ email: "", password: "" });
+  };
 
   handleChange = (e) => {
-    const { name, value } = e.target
-    this.setState({ [name]: value })
-  }
+    const { name, value } = e.target;
+    this.setState({ [name]: value });
+  };
 
   render() {
     return (
@@ -52,6 +53,6 @@ export default class SignIn extends Component {
           </div>
         </form>
       </div>
-    )
+    );
   }
 }

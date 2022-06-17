@@ -1,14 +1,14 @@
-import React from "react"
-import "./custom-button.scss"
+import React from "react";
+import "./custome-button.scss";
 const CustomButton = ({ children, isGoogleSignIn, ...props }) => {
   return (
     <button
       {...props}
-      className={`${isGoogleSignIn ? "google-sign-in" : ""} custom-button`}
+      className={`${isGoogleSignIn ? "google-sign-in" : " "} custom-button`}
     >
       {children}
     </button>
-  )
-}
+  );
+};
 
-export default CustomButton
+export default CustomButton;
