@@ -1,9 +1,9 @@
-import React from "react";
-import "./form-input.scss";
+import React from "react"
+import "./form-input.scss"
 const FormInput = ({ handleChange, label, ...props }) => {
   return (
     <div className="group">
-      <input className="form-input" onChange={handleChange} />
+      <input className="form-input" onChange={handleChange} {...props} />
       {label ? (
         <label
           className={`${props.value.length ? "shrink" : ""} form-input-label`}
@@ -12,7 +12,7 @@ const FormInput = ({ handleChange, label, ...props }) => {
         </label>
       ) : null}
     </div>
-  );
-};
+  )
+}
 
-export default FormInput;
+export default FormInput

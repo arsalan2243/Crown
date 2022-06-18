@@ -1,25 +1,30 @@
-import React, { Component } from "react";
-import CustomButton from "../custom-button/CustomButton";
-import FormInput from "../form-input/FormInput";
-import "./sign-in.scss";
-import { signInWithGoogle } from "../../firebase/firebase.utils";
+import React, { Component } from "react"
+import CustomButton from "../custom-button/CustomButton"
+import FormInput from "../form-input/FormInput"
+import "./sign-in.scss"
+import { auth, signInWithGoogle } from "../../firebase/firebase.utils"
 
 export default class SignIn extends Component {
   state = {
     email: "",
     password: "",
-  };
+  }
 
-  handleSubmit = (e) => {
-    e.preventDefault();
-
-    this.setState({ email: "", password: "" });
-  };
+  handleSubmit = async (e) => {
+    e.preventDefault()
+    const { email, password } = this.state
+    try {
+      await auth.signInWithEmailAndPassword(email, password)
+      this.setState({ email: "", password: "" })
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
   handleChange = (e) => {
-    const { name, value } = e.target;
-    this.setState({ [name]: value });
-  };
+    const { name, value } = e.target
+    this.setState({ [name]: value })
+  }
 
   render() {
     return (
@@ -53,6 +58,6 @@ export default class SignIn extends Component {
           </div>
         </form>
       </div>
-    );
+    )
   }
 }
