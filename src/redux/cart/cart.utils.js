@@ -9,5 +9,5 @@ export const addItemToCart = (cartItems, cartItemToAdd) => {
         : cartItem
     )
   }
-  return [...cartItems, { ...cartItemToAdd, quamtity: 1 }]
+  return [...cartItems, { ...cartItemToAdd, quantity: 1 }]
 }
