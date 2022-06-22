@@ -1,11 +1,11 @@
-import React from "react"
-import CartIcon from "../cart-icon/CartIcon"
-import { Link } from "react-router-dom"
-import "./header.scss"
-import { ReactComponent as Logo } from "../../assets/favicon.svg"
-import { auth } from "../../firebase/firebase.utils"
-import { connect } from "react-redux"
-import CartDropdown from "../cart/CartDropdown"
+import React from "react";
+import { Link } from "react-router-dom";
+import "./header.scss";
+import { ReactComponent as Logo } from "../../assets/favicon.svg";
+import { auth } from "../../firebase/firebase.utils";
+import { connect } from "react-redux";
+import CartIcon from "../cart-icon/CartIcon";
+import CartDropdown from "../cart-dropdown/CartDropdown";
 
 const Header = ({ currentUser, hidden }) => {
   return (
@@ -29,16 +29,17 @@ const Header = ({ currentUser, hidden }) => {
             SIGN IN
           </Link>
         )}
+
         <CartIcon />
       </div>
       {hidden ? null : <CartDropdown />}
     </div>
-  )
-}
+  );
+};
 
-const mapStateToProps = ({ user: { currentUser }, cart: { hidden } }) => ({
-  currentUser,
-  hidden,
-})
+const mapStateToProps = (state) => ({
+  currentUser: state.user.currentUser,
+  hidden: state.cart.hidden,
+});
 
-export default connect(mapStateToProps, {})(Header)
+export default connect(mapStateToProps, {})(Header);
