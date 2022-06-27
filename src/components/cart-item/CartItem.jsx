@@ -1,5 +1,5 @@
-import React from "react"
-import "./cart-item.scss"
+import React from "react";
+import "./cart-item.scss";
 
 const CartItem = ({ item: { imageUrl, price, name, quantity } }) => {
   return (
@@ -12,7 +12,7 @@ const CartItem = ({ item: { imageUrl, price, name, quantity } }) => {
         </span>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default CartItem
+export default CartItem;

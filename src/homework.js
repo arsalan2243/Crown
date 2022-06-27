@@ -1,21 +1,23 @@
-const jgfhjgik = (s) => {
-  const numbers = "0123456789"
+const compress = (s) => {
   let i = 0
   let j = 0
   const res = []
-  while (i < s.length) {
-    if (numbers.includes(s[i])) {
-      j++
+  while (j < s.length) {
+    if (s[i] === s[j]) {
+      j += 1
     } else {
-      let times = Number(s.slice(j, i))
-      for (let t = 0; t < times; t++) {
-        res.push(s[i])
-      }
-      i++
-      j = i
+      let num = j - i
+      res.push(num)
+      res.push(s[i])
+      i = j
     }
   }
-  return res.join("")
+  let num = j - i
+  res.push(num)
+  res.push(s[i])
+  return res
 }
-jgfhjgik("3n12e2z")
-console.log(jgfhjgik("3m2n12u5x"))
+
+module.exports = {
+  compress,
+}
